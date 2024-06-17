@@ -1,0 +1,33 @@
+@model PuestosModel;
+
+@{
+    ViewData["Title"] = "Agregar Informacion de Puesto";
+}
+
+<form asp-action="PuestosAdd" asp-controller="Puestos">
+
+    <div class="form-floating mb-3">
+        
+        <input asp-for="idPuestos" class="form-control" readonly aria-label="@Model.idPuestos" />
+        <label class="control-label">Id</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="nombrePuestos" placeholder="Nombre del Puesto">
+        <label asp-for="nombrePuestos"> Nombre del Puesto </label>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+    <a class="btn btn-outline-secundary" asp-action="PuestosList" asp-controller="Puestos">
+        Regresar
+    </a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

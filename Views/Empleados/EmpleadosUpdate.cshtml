@@ -1,0 +1,36 @@
+@model EmpleadosModel;
+
+@{
+    ViewData["Title"] = "Editar Informacion de Empleado";
+}
+
+<form asp-action="EmpleadosUpdate" asp-controller="Empleados" >
+    
+    <input type="hidden" asp-for="IdEmpleados">
+
+    <div class="mb-3">
+        <input type="text" class="form-control" asp-for="Nombre" 
+        placeholder="Nombre del Empleado">
+        <label asp-for="Nombre"> Nombre del Empleado </label>
+    </div>
+
+    
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Edad" 
+        placeholder="Edad del Empleado">
+        <label asp-for="Edad"> Edad del Empleado </label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Salario" 
+        placeholder="Salario del Empleado">
+        <label asp-for="Salario"> Salario del Empleado </label>
+    </div>
+
+     <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+    <a class="btn btn-outline-secundary" asp-action="EmpleadosList" asp-controller="Empleados">
+        Cancelar
+    </a>
+</form>

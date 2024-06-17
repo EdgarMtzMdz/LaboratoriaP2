@@ -1,0 +1,22 @@
+@model PuestosModel;
+
+@{
+    ViewData["Title"] = "Borrar Puesto";
+}
+
+<form asp-controller="Puestos" asp-action="PuestosDelete">
+
+    <div class="card" style="width: 18rem">
+        <div class="card-body">
+            <h5 class="card-title">Informacion</h5>
+            <h6 class="card-subtitle mb-2 text-body-secundary">¿Desea borrar puesto?</h6>
+            <p class="card-text">Nombre: @Model.nombrePuestos</p>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="idPuestos"/>
+    <button type="submit" class="btn btn-danger">Borrar</button>
+    <a class="btn btn-secundary" asp-action="PuestosList" asp-controller="Puestos">
+        Cancelar
+    </a>
+</form>

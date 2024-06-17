@@ -1,0 +1,74 @@
+@model IEnumerable<Empleados>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
+}
+
+<h1>Lista de Empleados</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                Mat
+
+        <th scope="col">
+                Nombre
+            </th>
+            <th scope="col">
+                Puesto
+            </th>
+            <th scope="col">
+                Edad
+            </th>
+            <th scope="col">
+                Fecha
+            </th>
+            <th scope="col">
+                Salario
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Empleados in Model)
+        {
+            <tr>
+                <td>
+                    @Empleados.IdEmpleados
+                </td>
+                <td>
+                    @Empleados.Nombre
+                </td>
+                <td>
+                    @Empleados.Edad
+                </td>
+                <td>
+                    @Empleados.Edad
+                </td>
+                <td>
+                    @Empleados.FechaEntrada
+                </td>
+                <td>
+                    @Empleados.Salario
+                </td>
+                <td>
+                    <a class="btn btn-outline-info" asp-action="EmpleadosUpdate" asp-controller="Empleados" asp-route-IdEmpleados="@Empleados.IdEmpleados">
+                        Editar
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger" asp-action="EmpleadosDelete" asp-controller="Empleados" asp-route-IdEmpleados="@Empleados.IdEmpleados">
+                        Borrar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>
+    <a class="btn btn-outline-info" asp-action="EmpleadosAdd" asp-controller="Empleados"
+    >
+        Agregar
+    </a>
+</h2>

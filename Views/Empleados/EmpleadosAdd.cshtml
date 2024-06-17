@@ -1,0 +1,50 @@
+@model EmpleadosModel;
+
+@{
+    ViewData["Title"] = "Agregar Informacion de Empleado";
+}
+
+<form asp-action="EmpleadosAdd" asp-controller="Empleados">
+
+    <div class="form-floating mb-3">
+        
+        <input asp-for="IdEmpleados" class="form-control" readonly aria-label="@Model.IdEmpleados" />
+        <label class="control-label">Id</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Nombre" placeholder="Nombre del Empleado">
+        <label asp-for="Nombre"> Nombre del Empleado </label>
+    </div>
+
+    <select class="form-select mb-3" asp-for="idPuestos" asp-items="@Model.PuestosList">
+        <option>Seleccionar Puesto</option>
+    </select>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Edad" placeholder="Edad del Empleado">
+        <label asp-for="Edad"> Edad del Empleado </label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Salario" placeholder="Salario del Empleado">
+        <label asp-for="Salario"> Salario del Empleado </label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="FechaEntrada" placeholder="Fecha de Entrada del Empleado">
+        <label asp-for="FechaEntrada"> Fecha de Entrada del Empleado </label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+    <a class="btn btn-outline-secundary" asp-action="EmpleadosList" asp-controller="Empleados">
+        Regresar
+    </a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
